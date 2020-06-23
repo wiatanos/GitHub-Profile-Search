@@ -1,0 +1,55 @@
+@import './src/resources/assets/styles/app.scss';
+
+#sidebar {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    top: 5vh;
+    height: 90vh;
+    padding: 15px;
+    border-radius: 3px;
+    background: $darker-light;
+    color: $gray;
+    font-size: 22px;
+
+    @media (max-width: 768px) {
+        font-size: 14px;
+    }
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 80px;
+
+    figure {
+        width: 80px;
+
+        img {
+            width: 100%;
+            border-radius: 100%;
+        }
+
+        @media (max-width: 768px) {
+            width: 50px;
+        }
+    }
+}
+
+ul{
+    list-style-type: none;
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
+    p{font-size: 22px;}
+
+    @media (max-width: 768px) {
+        font-size: 14px;
+        p {font-size: 16px;}
+    }
+}
+
+li {
+    padding: 5px;
+}

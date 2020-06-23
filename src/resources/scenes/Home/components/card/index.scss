@@ -1,0 +1,17 @@
+@import './src/resources/assets/styles/app.scss';
+
+.card {
+    background-color: $darker-light;
+    height: 180px;
+    justify-content: center;
+    align-items: center;
+
+    figure{
+        width: 80px;
+
+        img{
+            width: 100%;
+            border-radius: 100%;
+        }
+    }
+}

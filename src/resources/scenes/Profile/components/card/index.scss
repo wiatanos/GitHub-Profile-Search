@@ -1,0 +1,30 @@
+@import './src/resources/assets/styles/app.scss';
+
+.card {
+    background-color: $darker-light;
+    height: 180px;
+    padding: 20px;
+
+    .description{
+        font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+        height: auto;
+    }
+}
+
+.item {
+    span{margin-left: 5px;}
+
+    &.repo{
+        svg{
+            color: #2980B9;
+        }
+    }
+    &.code{color: #1ABC9C;}
+    &.watchers{color: #2C3E50;}
+    &.stars{color: #FDCB6E;}
+}
+
+.title{font-size: 22px;}
