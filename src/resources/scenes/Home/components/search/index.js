@@ -16,8 +16,6 @@ const Search = () => {
   const handleChange = (e) => {
     searchTerm = e.target.value.toLowerCase()
 
-    console.log(data)
-
     const results = data.filter(o => o.login.toLowerCase().includes(searchTerm));
     dispatch({type: 'SET_RESULTS', results: results})
   }

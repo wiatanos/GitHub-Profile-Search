@@ -1,48 +1,56 @@
 import React, {Fragment, useState, useEffect} from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
+import LoadingOverlay from 'react-loading-overlay'
 import Sidebar from './components/sidebar'
-import profileData from './data'
 import Repos from './components/repos'
 
 const useFetch = (login) => {
-    const [data, setData] = useState(null);
+    const [profile, setProfile] = useState(null);
+    const [repos, setRepos] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    useEffect((login = 'NaomiReeves') => {
+    useEffect(() => {
         async function callAPI(login) {
-            // let response = await fetch('https://api.github.com/users/'+login, {
-            //     headers: new Headers({
-            //         'Authorization': 'token bb398dbc80363889fd71525977f671b3a63b64f4'
-            //     })
-            // });
-            // response = await response.json();
+            let profileCall = await fetch('https://api.github.com/users/'+login, {
+                headers: new Headers({
+                    'Authorization': 'token aa30d112baf0914aad664311d53940b11c56fd57'
+                })
+            });
+            profileCall = await profileCall.json();
 
-            console.log(profileData)
+            let reposCall = await fetch(profileCall.repos_url)
+            reposCall = await reposCall.json();
 
-            let response = profileData
-            setData(response)
+            setProfile(profileCall)
+            setRepos(reposCall)
             setLoading(false)
         }
 
         callAPI(login);
     }, []);
 
-    return { data, loading };
+    return { profile, repos, loading };
 }
 
 const Profile = (props) => {
-    const { data, loading } = useFetch(props.match.params.login)
+
+    const { profile, repos, loading } = useFetch(props.match.params.login)
+
     return (
         <Container>
+            <LoadingOverlay
+            active={loading}
+            spinner
+            text='Carregando...'
+            />
             {(() => {
-                if(loading) return 'loading...'
-                if(data) return (
-                <Fragment>
-                    <Row>
-                        <Sidebar profile={data}/>
-                        <Repos />
-                    </Row>
-                </Fragment>
+                if(profile && repos) return (
+                    <Fragment>
+                        <Row>
+                            <Sidebar profile={profile}/>
+                            <Repos repos={repos}/>
+                        </Row>
+                    </Fragment>
                 )
             })()}
             
