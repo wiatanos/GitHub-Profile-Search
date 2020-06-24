@@ -1,5 +1,3 @@
-import { SET_RESULTS } from '../actions/actionTypes';
-
 const initialState = {
     'results': {}
 };

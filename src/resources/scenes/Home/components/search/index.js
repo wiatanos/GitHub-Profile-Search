@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { setProfiles, setResults } from '../../../../../app/store/actions/index'
 import "./index.scss";
 
 

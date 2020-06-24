@@ -13,7 +13,7 @@ const useFetch = (login) => {
         async function callAPI(login) {
             let profileCall = await fetch('https://api.github.com/users/'+login, {
                 headers: new Headers({
-                    'Authorization': 'token aa30d112baf0914aad664311d53940b11c56fd57'
+                    'Authorization': 'Basic '+btoa('wiatanos')
                 })
             });
             profileCall = await profileCall.json();

@@ -3,7 +3,6 @@ import Col from 'react-bootstrap/Col'
 import './index.scss'
 
 const Card = (props) => {
-    console.log(props.profile.login)
     return (
         <Col className='card col-5 col-md-3 col-lg-2 ml-2 mt-2'>
             <figure className='d-flex justify-content-center'>

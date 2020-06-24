@@ -18,7 +18,7 @@ const Home = (props) => {
     async function callAPI () {
         let response = await fetch('https://api.github.com/orgs/facebook/public_members', {
             headers: new Headers({
-                'Authorization': 'token aa30d112baf0914aad664311d53940b11c56fd57'
+                'Authorization': 'Basic '+btoa('wiatanos')
             })
         });
         response = await response.json()
